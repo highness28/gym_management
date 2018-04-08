@@ -209,6 +209,7 @@
                           <th>Subtotal</th>
                           <th>Total</th>
                           <th>Discount Total</th>
+                          <th>Status</th>
                           <th>Date and Time</th>
                         </tr>
                       </thead>
@@ -223,6 +224,7 @@
                             <td>{{ 'Php ' . number_format($purchase->sub_total, 2) }}</td>
                             <td>{{ 'Php ' . number_format($purchase->total, 2) }}</td>
                             <td>{{ $purchase->total_discount!=0? 'Php '.number_format($purchase->total_discount,2):'N\A' }}</td>
+                            <td>{{ $purchase->status == 1 ? 'Paid':'Unpaid' }}</td>
                             <td>{{ date('F d, Y h:m A', strtotime($purchase->created_at)) }}</td>
                           </tr>
                         @endforeach

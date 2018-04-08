@@ -12,6 +12,7 @@ class OrderList extends Model
         'quantity',
         'discount',
         'sub_total',
+        'status',
         'product_id',
         'invoice_id',
         'gym_id',

@@ -30,12 +30,13 @@ class PosController extends Controller
             'gym_id' => Auth::user()->gym_id,
             'branch_id' => Auth::user()->branch_id,
         ]);
-
+        
         for($i = 0; $i < count($request->product_id); $i++) {
             OrderList::create([
                 'quantity' => $request->quantity[$i],
                 'discount' => $request->discount[$i],
                 'sub_total' => $request->sub_total[$i],
+                'status' => $request->paid_value,
                 'product_id' => $request->product_id[$i],
                 'invoice_id' => $invoice->id,
                 'gym_id' => Auth::user()->gym_id,

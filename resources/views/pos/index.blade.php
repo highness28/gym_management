@@ -142,7 +142,8 @@
             <div class="co-xs-12">
               <span class="pull-left">
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#select_customer"><i class="fa fa-users"></i> Select Customer</button>
-                <span></span>
+                <input type="hidden" id="paid_value" name="paid_value" value="1">
+                <button type="button" id="set_unpaid" class="btn btn-danger"> Set Unpaid</button>
               </span>
               <span class="pull-right">
                 <button type="submit" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Submit</button>
@@ -276,6 +277,17 @@
         'ordering'    : true,
         'info'        : true,
         'autoWidth'   : true
+      });
+
+      $(document).on('click', '#set_unpaid', function() {
+        if($('#paid_value').val() === '1') {
+          $(this).attr('class', 'btn btn-info').empty().append("Set Paid");
+          $('#paid_value').val(0);
+        }
+        else {
+          $(this).attr('class', 'btn btn-danger').empty().append("Set Unpaid");
+          $('#paid_value').val(1)
+        }
       });
 
       $(document).on('click', '.select_customer_button', function() {
